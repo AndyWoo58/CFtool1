@@ -1,0 +1,578 @@
+/* =========================================================
+   Base & Reset
+   ========================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1a1a2e;
+  background: #f5f6fa;
+}
+
+/* =========================================================
+   Layout
+   ========================================================= */
+.page-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* =========================================================
+   Header
+   ========================================================= */
+.site-header {
+  text-align: center;
+  padding: 2rem 0 1.5rem;
+}
+
+.site-header h1 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #0c1a3a;
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* =========================================================
+   Card surface
+   ========================================================= */
+.card {
+  background: #fff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* =========================================================
+   Form
+   ========================================================= */
+#form-section {
+  background: #fff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: #374151;
+}
+
+.required {
+  color: #dc2626;
+}
+
+input[type="text"],
+input[type="url"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  color: #1a1a2e;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+input.invalid,
+textarea.invalid {
+  border-color: #dc2626;
+}
+
+.field-error {
+  display: none;
+  font-size: 0.8rem;
+  color: #dc2626;
+  margin-top: 0.3rem;
+}
+
+.field-error.visible {
+  display: block;
+}
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.5rem;
+  background: #0c447c;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.btn-primary:hover {
+  background: #0a3a6b;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.5rem;
+  background: #fff;
+  color: #374151;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-secondary:hover {
+  background: #f9fafb;
+}
+
+/* =========================================================
+   Loading
+   ========================================================= */
+.loading-card {
+  background: #fff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #0c447c;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* =========================================================
+   Error
+   ========================================================= */
+.error-card {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #991b1b;
+  margin-bottom: 1rem;
+}
+
+.error-card strong {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.error-card p {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   Output
+   ========================================================= */
+.output-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Section label */
+.section-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+/* ---- 1. Metadata bar ---- */
+.metadata-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background: #fff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.meta-pill {
+  font-size: 0.78rem;
+  background: #f3f4f6;
+  color: #374151;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-weight: 500;
+}
+
+/* ---- 2. Summary ---- */
+.summary-card {
+  background: #fff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.summary-card p {
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.7;
+}
+
+/* ---- 3. CF Mapping ---- */
+.cf-mapping-card {
+  background: #fff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.cf-group-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+  margin: 1rem 0 0.5rem;
+}
+
+.cf-group-label:first-of-type {
+  margin-top: 0;
+}
+
+.cf-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.cf-type-card {
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+}
+
+.cf-type-card h4 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+
+.cf-type-card p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+/* CF colour themes */
+.cf-blue { background: #E6F1FB; color: #0C447C; }
+.cf-amber { background: #FAEEDA; color: #633806; }
+.cf-teal { background: #E1F5EE; color: #085041; }
+
+/* ---- Flow diagram ---- */
+.flow-diagram {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.flow-node {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.78rem;
+  color: #374151;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.flow-arrow {
+  color: #9ca3af;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ---- 4. Tasks ---- */
+.tasks-card {
+  background: #fff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.task-block {
+  padding: 1rem 0 1rem 1rem;
+  border-left: 2px solid #3b82f6;
+}
+
+.task-block + .task-block {
+  border-top: 1px solid #f3f4f6;
+  margin-top: 0.75rem;
+  padding-top: 1.25rem;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.task-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1a1a2e;
+}
+
+.task-duration {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+.task-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.6rem;
+}
+
+/* CF type pills */
+.pill-blue { background: #E6F1FB; color: #0C447C; }
+.pill-amber { background: #FAEEDA; color: #633806; }
+.pill-teal { background: #E1F5EE; color: #085041; }
+/* CF principle pills */
+.pill-purple { background: #EEEDFE; color: #3C3489; }
+/* Tool pill */
+.pill-tool { background: #E1F5EE; color: #085041; text-decoration: none; }
+
+.pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  line-height: 1.4;
+}
+
+a.pill {
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+a.pill:hover {
+  opacity: 0.75;
+}
+
+.task-description {
+  font-size: 0.88rem;
+  color: #374151;
+  line-height: 1.65;
+  margin-bottom: 0.65rem;
+}
+
+.task-rationale {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.82rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* ---- 5. Design tips ---- */
+.tips-card {
+  background: #fff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.tips-card p {
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   Utility
+   ========================================================= */
+.hidden {
+  display: none !important;
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.site-footer {
+  text-align: center;
+  padding: 1.5rem 0 2rem;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 540px) {
+  .site-header h1 {
+    font-size: 1.25rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .output-actions {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   Print stylesheet
+   ========================================================= */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  .no-print,
+  #form-section,
+  #loading-section,
+  #error-section,
+  .site-header,
+  .site-footer,
+  .output-actions {
+    display: none !important;
+  }
+
+  .page-wrapper {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .card,
+  .metadata-bar,
+  .summary-card,
+  .cf-mapping-card,
+  .tasks-card,
+  .tips-card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    page-break-inside: avoid;
+  }
+
+  .cf-blue, .cf-amber, .cf-teal {
+    border: 1px solid #ccc;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .pill-blue, .pill-amber, .pill-teal, .pill-purple, .pill-tool {
+    background: #eee !important;
+    color: #000 !important;
+  }
+
+  .task-rationale {
+    background: #f5f5f5;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  @page {
+    margin: 1.5cm;
+  }
+}

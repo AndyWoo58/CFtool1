@@ -1,0 +1,9 @@
+{
+  "name": "conversational-framework-lesson-designer",
+  "version": "1.0.0",
+  "description": "Lesson designer grounded in Laurillard's Conversational Framework, deployed via Netlify",
+  "private": true,
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0"
+  }
+}

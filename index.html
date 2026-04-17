@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conversational Framework Lesson Designer</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="site-header">
+      <h1>Conversational Framework Lesson Designer</h1>
+      <p class="subtitle">Grounded in Laurillard (2012), <em>Teaching as a Design Science</em></p>
+    </header>
+
+    <main>
+      <!-- FORM SECTION -->
+      <section id="form-section">
+        <form id="lesson-form" novalidate>
+          <div class="form-group">
+            <label for="lesson">Lesson description / learning outcome <span class="required">*</span></label>
+            <textarea
+              id="lesson"
+              name="lesson"
+              rows="4"
+              placeholder="e.g. Students will be able to analyse the causes of the First World War using primary and secondary sources."
+              required
+            ></textarea>
+            <span class="field-error" id="lesson-error">Please describe your lesson or learning outcome.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject / discipline</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="e.g. History, Computer Science, Nursing"
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="level">Level</label>
+              <select id="level" name="level">
+                <option value="">Select level…</option>
+                <option>Pre-university / Foundation</option>
+                <option>Undergraduate Y1–2</option>
+                <option>Undergraduate Y3</option>
+                <option>Postgraduate taught</option>
+                <option>Postgraduate research</option>
+                <option>Professional / CPD</option>
+                <option>Secondary school</option>
+                <option>Primary school</option>
+                <option>Adult / community education</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mode">Delivery mode</label>
+              <select id="mode" name="mode">
+                <option value="">Select mode…</option>
+                <option>Face-to-face</option>
+                <option>Online synchronous</option>
+                <option>Online asynchronous</option>
+                <option>Blended</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="size">Class size</label>
+            <select id="size" name="size">
+              <option value="">Select class size…</option>
+              <option>1–10 (seminar/tutorial)</option>
+              <option>11–30 (small class)</option>
+              <option>31–80 (medium lecture)</option>
+              <option>80+ (large lecture)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="resourceUrl">Link to a video, article, or text (optional)</label>
+            <input
+              type="url"
+              id="resourceUrl"
+              name="resourceUrl"
+              placeholder="https://…"
+            />
+          </div>
+
+          <button type="submit" class="btn-primary" id="submit-btn">
+            Design My Lesson
+          </button>
+        </form>
+      </section>
+
+      <!-- LOADING STATE -->
+      <section id="loading-section" class="hidden">
+        <div class="loading-card">
+          <div class="spinner"></div>
+          <p>Analysing your lesson through the Conversational Framework…</p>
+        </div>
+      </section>
+
+      <!-- ERROR STATE -->
+      <section id="error-section" class="hidden">
+        <div class="error-card">
+          <strong>Something went wrong</strong>
+          <p id="error-message"></p>
+          <button class="btn-secondary" id="error-reset-btn">Try again</button>
+        </div>
+      </section>
+
+      <!-- OUTPUT SECTION -->
+      <section id="output-section" class="hidden">
+        <div id="output-content">
+          <!-- Populated by app.js -->
+        </div>
+
+        <div class="output-actions">
+          <button class="btn-secondary no-print" id="reset-btn">Design another lesson</button>
+          <button class="btn-primary no-print" id="print-btn">Download as PDF</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer no-print">
+      <p>Based on Laurillard, D. (2012). <em>Teaching as a Design Science</em>. Routledge.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
