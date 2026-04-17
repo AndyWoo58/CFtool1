@@ -25,29 +25,29 @@ Key CF principles to reference in rationales:
 
 Digital tools available: Mentimeter, Padlet, Google Docs, Google Forms, Oxford Learner's Dictionary, COCA Corpus, Hypothesis, Flip, Miro, Quizlet, Poll Everywhere, Perusall, VoiceThread, Nearpod, Kahoot, Wakelet, Notion, Canva, Book Creator, Microsoft Forms, Socrative, Wooclap.
 
-Return ONLY valid JSON with no markdown fences, no preamble, no trailing text. Strict schema:
+Return ONLY valid JSON with no markdown fences, no preamble, no trailing text. Be concise — keep all strings short. Strict schema:
 
 {
-  "summary": "string (2-3 sentences pedagogic summary of how CF applies to this lesson)",
+  "summary": "string (2 sentences maximum)",
   "cf_mapping": [
-    { "type": "string (CF type name)", "relevance": "string (1-2 sentences on its role in this lesson)", "priority": "primary or secondary" }
+    { "type": "string (CF type name)", "relevance": "string (1 sentence only)", "priority": "primary or secondary" }
   ],
   "tasks": [
     {
       "title": "string",
       "duration": "string (e.g. '15 min')",
       "cf_types": ["array of CF type names"],
-      "description": "string (what teacher does + what students do, 2-3 sentences)",
+      "description": "string (2 sentences maximum)",
       "digital_tool": "string (tool name)",
       "tool_url": "string (full URL to the tool)",
-      "tool_rationale": "string (2-3 sentences connecting tool and task to specific CF principles)",
-      "cf_principles": ["array of short principle labels e.g. 'adaptive feedback', 'peer concept cycle']"
+      "tool_rationale": "string (2 sentences maximum)",
+      "cf_principles": ["2-3 short lowercase labels only"]
     }
   ],
-  "design_tips": "string (2-3 sentences practical advice tailored to this teacher's context)"
+  "design_tips": "string (2 sentences maximum)"
 }
 
-Include 3-5 tasks. Include all relevant CF types in cf_mapping (mark 2-3 as primary, rest as secondary). Ensure cf_principles are short, lowercase labels.`;
+Include EXACTLY 3 tasks. Include only the most relevant CF types in cf_mapping (2 primary, 2 secondary maximum). cf_principles must be short lowercase labels (3 words max each).`;
 
 exports.handler = async (event) => {
   if (event.httpMethod === "OPTIONS") {
