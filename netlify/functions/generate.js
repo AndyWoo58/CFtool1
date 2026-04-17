@@ -96,11 +96,12 @@ Generate a CF-aligned lesson design with 3-5 activities, drawing on the digital 
   try {
     const client = new Anthropic({
       apiKey: process.env.ANTHROPIC_API_KEY,
+      timeout: 25000,
     });
 
     const message = await client.messages.create({
-      model: "claude-sonnet-4-5",
-      max_tokens: 2500,
+      model: "claude-sonnet-4-6",
+      max_tokens: 1500,
       system: SYSTEM_PROMPT,
       messages: [{ role: "user", content: userMessage }],
     });
