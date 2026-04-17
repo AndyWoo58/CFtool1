@@ -99,7 +99,7 @@ Generate a CF-aligned lesson design with 3-5 activities, drawing on the digital 
     });
 
     const message = await client.messages.create({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-sonnet-4-5",
       max_tokens: 2500,
       system: SYSTEM_PROMPT,
       messages: [{ role: "user", content: userMessage }],
